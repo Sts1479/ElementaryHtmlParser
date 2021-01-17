@@ -35,7 +35,7 @@ POSTFIX_ATTR = {'a': 'href'}
 
 ALLOWED_TAGS = ['h1', 'h2', 'p']
 
-IGNORE_ATTRS = {}
+IGNORE_ATTRS = [('class', 'incut'),('id', 'article_pants')]
 
 IGNORE_TAGS = ['nav', 'aside', 'header', 'footer']
 

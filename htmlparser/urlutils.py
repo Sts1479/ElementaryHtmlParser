@@ -23,15 +23,15 @@ def coroutine(g):
 
 
 """
-    URL может заканчиваться на слэш, а может заканчиваться на: .html, .php и т.д.,
-    а может ни на то, ни на то.
-    Если не можем дать название из урла, то даем просто какое-то уникальное и кладем в дирректорию
-    с названием сайта.
+URL может заканчиваться на слэш, а может заканчиваться на: .html, .php и т.д.,
+а может ни на то, ни на то.
+Если не можем дать название из урла, то даем просто какое-то уникальное и кладем в дирректорию
+с названием сайта.
  """
 
 def url_to_filepath(url):
     now = datetime.now()
-    dt_string = now.strftime('%Y%m%d%H%M%S')
+    dt_string = now.strftime('%H_%M_%S')
     f = urlparse(url)
     file_path = '%s.txt' % uuid.uuid4()
     f_path = f.path.strip('/')
@@ -57,13 +57,13 @@ def write_to_file(url):
             text = yield
             f.write(textwrap.fill(text, width=MAX_LINE_LENGTH))
             f.write('\n\n')
+"""
+Пре-парсинг html , удаляются ненужные тэги и тэги с ненужными атрибутами.
 
+"""
 
 def prepare_html(html):
-    """
-    "Готовит" html к последующему парсингу, вырезая ненужные тэги и тэги с ненужными атрибутами.
 
-    """
     soup = BeautifulSoup(html, "html.parser")
     if IGNORE_TAGS:
         tags = soup.findAll(IGNORE_TAGS)
