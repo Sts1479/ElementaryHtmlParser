@@ -8,8 +8,8 @@
 
 Основная полезная информация будет храниться в определенных тэгах. Имея url, мы читаем контент страницы и ищем содержимое этих тэгов.  Для гибкой настройки в файле config.py описаны настройки, которые позволяют настроить параметры под сайт. Для парсинга используется стандартный питоновский HTMLParser, вспомогательные инструменты BeautifulSoup4 и python-requests. Пока скрипт работает с версией =>python 3.6.
 
-Формат ввода *python -m htmlparser page_url*<br/>
-Пример: *python -m htmlparser https://lenta.ru/news/2021/01/17/posol/
+Формат ввода: python -m htmlparser page_url*<br/>
+Пример: python -m htmlparser https://lenta.ru/news/2021/01/17/posol/
 
 ## Настройки.
 MAX_LINE_LENGTH - максимальная длина строки текста
